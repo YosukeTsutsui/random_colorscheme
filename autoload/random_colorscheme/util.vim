@@ -1,19 +1,19 @@
 scriptencoding utf-8
 " ==============================================================================
-" Filename: autoload/random_colorscheme.vim
+" Filename: autoload/random_colorscheme/util.vim
 " Author: Y.Tsutsui
 " License: MIT License
-" Last Change: 2015/04/27 15:15:33.
+" Last Change: 2015/04/27 15:16:46.
 " ==============================================================================
 
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! random_colorscheme#init() abort
-  " g:random_colorscheme#change_background
-  "   backgroundのlight/darkも切り替える
-  "   デフォルト: 1
-  call random_colorscheme#util#set_default('g:random_colorscheme#change_background', 1)
+function! random_colorscheme#util#set_default(var, val) abort
+  if !exists(a:var) || type({a:var}) != type(a:val)
+    unlet {a:var}
+    let {a:var} = a:val
+  endif
 endfunction
 
 let &cpo = s:save_cpo
