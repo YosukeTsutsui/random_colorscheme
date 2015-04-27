@@ -1,1 +1,1 @@
-# random_colorscheme
+# random_colorscheme.vim
