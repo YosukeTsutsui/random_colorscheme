@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Filename: autoload/random_colorscheme/util.vim
 " Author: Y.Tsutsui
 " License: MIT License
-" Last Change: 2015/04/27 16:11:48.
+" Last Change: 2015/04/27 16:38:05.
 " ==============================================================================
 
 let s:save_cpo = &cpo
@@ -14,7 +14,9 @@ let s:seed = 0
 
 function! random_colorscheme#util#set_default(var, val) abort
   if !exists(a:var) || type({a:var}) != type(a:val)
-    unlet {a:var}
+    if exists(a:var)
+      unlet {a:var}
+    endif
     let {a:var} = a:val
   endif
 endfunction
