@@ -3,7 +3,7 @@ scriptencoding utf-8
 " Filename: autoload/random_colorscheme/util.vim
 " Author: Y.Tsutsui
 " License: MIT License
-" Last Change: 2015/04/27 15:26:56.
+" Last Change: 2015/04/27 16:11:48.
 " ==============================================================================
 
 let s:save_cpo = &cpo
@@ -29,6 +29,10 @@ function! random_colorscheme#util#rand() abort
   " http://d.hatena.ne.jp/mFumi/20110920/1316525906
   let s:seed = s:seed * 214013 + 2531011
   return (s:seed < 0 ? s:seed - 0x80000000 : s:seed) / 0x10000 % 0x8000
+endfunction
+
+function! random_colorscheme#util#rand_n(max) abort
+  return random_colorscheme#util#rand() % (a:max < 1 ? 1 : a:max)
 endfunction
 
 let &cpo = s:save_cpo
