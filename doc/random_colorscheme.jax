@@ -1,7 +1,7 @@
-*random_colorscheme.txt*	要約
+*random_colorscheme.txt*	colorschemeをランダムに変更します。
 
-Version :
-Author  :
+Version : 1.0.0
+Author  : Y.Tsutsui
 License : MIT license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -38,14 +38,25 @@ TODO				|random_colorscheme-todo|
 ==============================================================================
 概要						*random_colorscheme-introduction*
 
-*random_colorscheme* は
+*random_colorscheme* は、インストールされている|colorscheme|からランダムに1つ
+を選択し、適用するプラグインです。同時に、|background|の light/dark もランダム
+に変更します。
+ずっと同じ|colorscheme|を使い続けることはマンネリに繋がり、また眠気も誘いやす
+くなりますので、作業効率低下のもとになります。しかし、どの|colorscheme|に変更
+しようか悩む時間ももったいないと感じてしまい、結局同何もしないまま作業を続け
+てしまいます。何でもいいから気分を変えたいと思い、このプラグインを作りました。
+
 
 最新版:
-https://github.com/user/random_colorscheme.vim
+https://github.com/yyotti/random_colorscheme.vim
 
 
 ==============================================================================
 使い方						*random_colorscheme-usage*
+|:RandomColorschemeChange|を実行するだけです。
+|g:random_colorscheme#change_background|が1の場合、|background|も変更します。ただ
+し、|background|は light/dark の2値しかないため、ランダムに決定するとずっと同じ
+値が続く可能性もあります。
 
 
 
@@ -56,42 +67,41 @@ https://github.com/user/random_colorscheme.vim
 変数						*random_colorscheme-variables*
 
 g:random_colorscheme#change_background	*g:random_colorscheme#change_background*
+	既定値: 1
+	|:RandomColorschemeChange|を実行した際に、|background|の値も変更する場合は1
 
 
 ------------------------------------------------------------------------------
 コマンド					*random_colorscheme-commands*
 
 :RandomColorschemeChange			*:RandomColorschemeChange*
+	インストールされている|colorscheme|から1つをランダムに選択し、変更します。
+	|g:random_colorscheme#change_background|が1の場合、|background|の値もラン
+	ダムに切り替えます。
 
 
 ------------------------------------------------------------------------------
 関数						*random_colorscheme-functions*
 
 random_colorscheme#change()			*random_colorscheme#change()*
-
-
-random_colorscheme#util#rand()		*random_colorscheme#util#rand()*
-
-
-					*random_colorscheme#util#rand_init()*
-random_colorscheme#util#rand_init({seed})
-
-
-random_colorscheme#util#rand_n({max})	*random_colorscheme#util#rand_n()*
-
-
-				*random_colorscheme#util#set_default()*
-random_colorscheme#util#set_default({var}, {val})
+	|:RandomColorschemeChange|の実装です。
 
 
 ==============================================================================
 TODO						*random_colorscheme-todo*
+
+- testを作成する
+- プレイリストのように、変更対象のスキーマを限定できるようにする。
+ex) プリインストールされているものは除く、など
+- タイマーで一定時間ごとに自動的に切り替えられるようにする。
 
 
 
 ==============================================================================
 更新履歴					*random_colorscheme-changelog*
 
+1.0.0	2015/04/28
+	- 初リリース
 
 ==============================================================================
 vim:tw=78:ts=8:ft=help:norl:noet:fen:
