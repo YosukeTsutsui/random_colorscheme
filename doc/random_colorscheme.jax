@@ -28,7 +28,6 @@ License : MIT license  {{{
 概要				|random_colorscheme-introduction|
 使い方				|random_colorscheme-usage|
 インターフェイス		|random_colorscheme-interface|
-  変数				  |random_colorscheme-variables|
   コマンド			  |random_colorscheme-commands|
   関数				  |random_colorscheme-functions|
 TODO				|random_colorscheme-todo|
@@ -39,8 +38,8 @@ TODO				|random_colorscheme-todo|
 概要						*random_colorscheme-introduction*
 
 *random_colorscheme* は、インストールされている|colorscheme|からランダムに1つ
-を選択し、適用するプラグインです。同時に、|background|の light/dark もランダム
-に変更します。
+を選択し、適用するプラグインです。
+
 ずっと同じ|colorscheme|を使い続けることはマンネリに繋がり、また眠気も誘いやす
 くなりますので、作業効率低下のもとになります。しかし、どの|colorscheme|に変更
 しようか悩む時間ももったいないと感じてしまい、結局同何もしないまま作業を続け
@@ -54,9 +53,6 @@ https://github.com/yyotti/random_colorscheme.vim
 ==============================================================================
 使い方						*random_colorscheme-usage*
 |:RandomColorschemeChange|を実行するだけです。
-|g:random_colorscheme#change_background|が1の場合、|background|も変更します。ただ
-し、|background|は light/dark の2値しかないため、ランダムに決定するとずっと同じ
-値が続く可能性もあります。
 
 
 
@@ -64,20 +60,10 @@ https://github.com/yyotti/random_colorscheme.vim
 インターフェイス				*random_colorscheme-interface*
 
 ------------------------------------------------------------------------------
-変数						*random_colorscheme-variables*
-
-g:random_colorscheme#change_background	*g:random_colorscheme#change_background*
-	既定値: 1
-	|:RandomColorschemeChange|を実行した際に、|background|の値も変更する場合は1
-
-
-------------------------------------------------------------------------------
 コマンド					*random_colorscheme-commands*
 
 :RandomColorschemeChange			*:RandomColorschemeChange*
 	インストールされている|colorscheme|から1つをランダムに選択し、変更します。
-	|g:random_colorscheme#change_background|が1の場合、|background|の値もラン
-	ダムに切り替えます。
 
 
 ------------------------------------------------------------------------------

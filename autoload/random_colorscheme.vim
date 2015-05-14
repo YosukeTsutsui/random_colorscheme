@@ -3,18 +3,13 @@ scriptencoding utf-8
 " Filename: autoload/random_colorscheme.vim
 " Author: Y.Tsutsui
 " License: MIT License
-" Last Change: 2015/04/27 16:45:07.
+" Last Change: 2015/05/14 10:36:41.
 " ==============================================================================
 
 let s:save_cpo = &cpo
 set cpo&vim
 
 " 初期化 {{{
-
-" g:random_colorscheme#change_background
-"   backgroundのlight/darkも切り替える
-"   デフォルト: 1
-call random_colorscheme#util#set_default('g:random_colorscheme#change_background', 1)
 
 " 乱数のシードを初期化
 call random_colorscheme#util#rand_init(localtime())
@@ -26,11 +21,6 @@ function! random_colorscheme#change() abort
   let scheme_name = list[random_colorscheme#util#rand_n(len(list))]
 
   execute 'colorscheme '.scheme_name
-
-  if g:random_colorscheme#change_background
-    let bg = random_colorscheme#util#rand_n(2) ? 'light' : 'dark'
-    let &background = bg
-  endif
 endfunction
 
 function! s:get_colorschemes() abort
